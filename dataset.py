@@ -69,8 +69,6 @@ class DatasetABIDE(torch.utils.data.Dataset):
                 self.timeseries_list.append(timeseries)
                 label -= 1 
                 self.label_list.append(label)
-            print(self.label_list.count(0))
-            print(self.label_list.count(1))
             torch.save((self.timeseries_list, self.label_list), os.path.join(sourcedir, 'processed', f'{self.filename}.pth'))
         if type(k_fold) is type(None):
             k_fold = 0
@@ -144,10 +142,6 @@ class DatasetADHD(torch.utils.data.Dataset):
                     continue
                 self.timeseries_list.append(timeseries)
                 self.label_list.append(label)
-            print(self.label_list.count(0))
-            print(self.label_list.count(1))
-            print(self.label_list.count(2))
-            print(self.label_list.count(3))
             torch.save((self.timeseries_list, self.label_list), os.path.join(sourcedir, 'processed', f'{self.filename}.pth'))
         if type(k_fold) is type(None):
             k_fold = 0
